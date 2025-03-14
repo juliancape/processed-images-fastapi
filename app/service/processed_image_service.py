@@ -16,12 +16,12 @@ class ProcessedImageService():
     def get_processed_images_by_image(self, image_id: int):
         return self.db.query(ProcessedImageModel).filter(ProcessedImageModel.image_id == image_id).all()
 
-    def create_processed_image(self, processed_image: ProcessedImage, image_id: int):
+    def create_processed_image(self, processed_image: ProcessedImage):
         new_processed_image = ProcessedImageModel(
             filename=processed_image.filename,
             content_type=processed_image.content_type,
             data=processed_image.data,
-            image_id=image_id
+            image_id=processed_image.image_id
         )
         self.db.add(new_processed_image)
         self.db.commit()
