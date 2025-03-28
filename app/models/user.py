@@ -1,6 +1,6 @@
 from config.database import Base
 from datetime import datetime
-from sqlalchemy import Column, String, Integer, DateTime
+from sqlalchemy import Column, String, Integer, DateTime, Boolean
 from sqlalchemy.orm import relationship
 
 class User(Base):
@@ -11,6 +11,7 @@ class User(Base):
     email = Column(String, unique=True, index=True, nullable=False)
     hashed_password = Column(String, nullable=False)
     inserted_at = Column(DateTime, default=datetime.utcnow())
+    admin = Column(Boolean, default=False, nullable=False)
 
     # Un usuario puede tener muchos proyectos
     projects = relationship("Project", back_populates="owner")

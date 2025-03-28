@@ -1,20 +1,23 @@
 bootstrap:
-	docker build -t fastpimage .
-
-stop:
-	docker stop mycontainer || true
-	docker rm mycontainer || true
+	docker-compose up -d --build
 
 start:
-	docker run -d --name mycontainer -p 80:80 fastpimage
+	docker-compose up -d
+
+stop:
+	docker-compose down
+
+restart:
+	docker-compose restart
 
 logs:
-	docker logs -f mycontainer
+	docker-compose logs -f
 
 reset:
-	docker stop mycontainer || true
-	docker rm mycontainer || true
-	docker rmi -f fastpimage
+	docker-compose down -v
 
 requirements:
-	docker run --rm fastpimage pip freeze
+	docker-compose run --rm app pip freeze
+
+shell:
+	docker exec -it mycontainer sh 

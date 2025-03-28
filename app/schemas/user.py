@@ -9,6 +9,7 @@ class User(BaseModel):
     email: EmailStr
     hashed_password: str = Field(min_length=5)
     inserted_at: Optional[datetime] = None
+    admin: bool = Field(default=False)
 
     class Config:
         schema_extra = {

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: mycontainer
+    ports:
+      - "80:80"
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/prueba1
+    depends_on:
+      - db
+    volumes:
+      - ./app:/code/app
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: prueba1
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
