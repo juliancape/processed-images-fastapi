@@ -36,6 +36,7 @@ Representa un usuario del sistema.
 - `email`: Correo electrónico único.
 - `hashed_password`: Contraseña encriptada.
 - `inserted_at`: Fecha de registro.
+- `admin`: admin True o False.
 - **Relación**: un usuario puede tener múltiples proyectos.
 
 ### 2. `Project`
