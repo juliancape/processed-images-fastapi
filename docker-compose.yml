@@ -2,10 +2,12 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    build:
+      context: ./app
+      dockerfile: Dockerfile
     container_name: mycontainer
     ports:
-      - "80:80"
+      - "8000:80"
     environment:
       - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/prueba1
     depends_on:
@@ -26,6 +28,18 @@ services:
       - "5434:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  app_web:
+    build:
+      context: ./app_web
+      dockerfile: Dockerfile
+    container_name: streamlit_frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - app
+    volumes:
+      - ./app_web:/code
 
 volumes:
   pgdata:

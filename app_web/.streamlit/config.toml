@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#7289da"              # botones y acentos
+backgroundColor = "#2c2f33"           # fondo de la app
+secondaryBackgroundColor = "#23272a"  # fondo de contenedores
+textColor = "#ffffff"                 # texto principal
+font = "sans serif"

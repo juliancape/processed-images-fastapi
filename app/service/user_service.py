@@ -20,7 +20,7 @@ class UserService():
         return self.db.query(UserModel).filter(UserModel.email == email).first()
 
     def create_user(self, user: User):
-        hashed_password = pwd_context.hash(user.hashed_password)
+        hashed_password = pwd_context.hash(user.hashed_password)  
         new_user = UserModel(
             name=user.name,
             email=user.email,
