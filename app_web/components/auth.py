@@ -9,7 +9,7 @@ API_URL = os.getenv("API_URL")
 
 def login_user(email: str, password: str) -> bool:
     # Preparar el payload
-    user_data = {"email": email, "hashed_password": password}
+    user_data = {"email": email, "hashed_password": password, "name": "prueba"}
 
     # Hacer la solicitud POST a la API
     try:

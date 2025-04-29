@@ -13,7 +13,7 @@ def display():
             # Llamada a la función login_user que hará la autenticación
             if login_user(email, password):
                 st.session_state.authenticated = True
-                st.rerun()  # reemplaza experimental_rerun
+                st.rerun()  
             else:
                 st.error("Credenciales incorrectas")
 

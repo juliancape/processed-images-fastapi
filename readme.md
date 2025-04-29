@@ -140,12 +140,8 @@ Imagen derivada (procesada por un modelo de IA o filtro).
 ## 📦 Cómo ejecutar
 
 ```bash
-# Crear entorno virtual
-python -m venv env
-source env/bin/activate  # o env\Scripts\activate en Windows
 
-# Instalar dependencias
-pip install -r requirements.txt
-
-# Correr el servidor
-uvicorn main:app --reload
+crear app_web/.env
+API_URL=http://app:80/api
+# Unico comando instalar e iniciar el contenedor
+make bootstrap start logs
