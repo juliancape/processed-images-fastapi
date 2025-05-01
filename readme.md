@@ -1,5 +1,17 @@
 # Sistema de Procesamiento de Imágenes con FastAPI
 
+## 📦 Cómo ejecutar
+
+```bash
+
+crear app_web/.env
+API_URL=http://app:80/api
+# Unico comando instalar e iniciar el contenedor
+make bootstrap start logs
+```
+
+---
+
 ## 🧩 Problema que se busca resolver
 
 En muchos entornos industriales, médicos o de vigilancia, es necesario procesar imágenes para extraer información crítica, generar alertas o simplemente almacenar datos relevantes para auditorías. Este proyecto ofrece una **API RESTful basada en FastAPI** que permite a los usuarios:
@@ -136,12 +148,3 @@ Imagen derivada (procesada por un modelo de IA o filtro).
 - **Facilidad de pruebas y mantenibilidad**.
 
 ---
-
-## 📦 Cómo ejecutar
-
-```bash
-
-crear app_web/.env
-API_URL=http://app:80/api
-# Unico comando instalar e iniciar el contenedor
-make bootstrap start logs
